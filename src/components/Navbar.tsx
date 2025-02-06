@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
       <div style={styles.links}>
         <Link href="/home" style={styles.link}>Home</Link>
         <Link href="/profile" style={styles.link}>Profile</Link>
-        <Link href="/settings" style={styles.link}>Settings</Link>
+        <Link href="/resources" style={styles.link}>Resources</Link>
       </div>
     </nav>
   );
