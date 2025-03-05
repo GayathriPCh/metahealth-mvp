@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### **🔹 MetaHealth MVP - User Flow**  
 
-## Getting Started
+The **dashboard** acts as the central hub, with users navigating through tabs for different functionalities.  
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### **📌 Full User Journey**
+#### **1️⃣ Landing Page (Pre-Login)**
+- **User arrives at MetaHealth.**
+- **Sees** tagline: *"Your Health, Secured on Solana."*
+- **Clicks** "Get Started" → Prompts wallet connection.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### **2️⃣ Wallet Authentication & Onboarding**
+- **User connects wallet** (Phantom, Solflare, etc.).
+- **Redirects to** `/home` (Dashboard).
+- **First-time user?** → Show onboarding (mint NFT Health ID).
+- **Returning user?** → Directly lands on "My Dashboard."
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### **3️⃣ Dashboard (Main Hub)**
+- **Displays left-side navigation tabs**:  
+  ✅ *My Dashboard* (default)  
+  ✅ *Book Appointment*  
+  ✅ *Your Prescriptions*  
+  ✅ *Emergency Access*  
+  ✅ *Saved Resources*  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+##### **🟢 My Dashboard (Default)**
+- Greets the user → "👋 Welcome to MetaHealth!"  
+- Suggests tutorials & features to try.  
+- Quick links to new features.  
 
-## Learn More
+##### **📅 Book Appointment**
+- **User selects** doctor (telemedicine or physical visit).  
+- **Chooses** date & time.  
+- **Confirms** appointment (NFT-based confirmation).  
 
-To learn more about Next.js, take a look at the following resources:
+##### **💊 Your Prescriptions**
+- **User views** past prescriptions (NFTs stored on Solana).  
+- **Pharmacy scans** prescription to verify authenticity.  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+##### **🚑 Emergency Access**
+- **User taps** "Emergency Mode."  
+- **Displays** critical health info (blood type, allergies, etc.).  
+- **First responders scan** QR/NFT for instant access.  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+##### **📂 Saved Resources**
+- **User bookmarks** guides, articles, and medical records.  
+- **Can revisit** any time.  
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### **🔹 Navigation Flow Summary**
+📌 **Landing Page** → Wallet Connect → **Dashboard**  
+🔹 **Dashboard** → Select a Tab → View & Interact with Features  

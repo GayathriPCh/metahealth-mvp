@@ -1,0 +1,298 @@
+{
+  "address": "3DW73nMMHXjD7NEmndkvyuviiKycSS8KpAJXHQ2wwMAs",
+  "metadata": {
+    "name": "metahealth",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "grant_doctor_access",
+      "discriminator": [
+        24,
+        47,
+        71,
+        64,
+        171,
+        20,
+        224,
+        177
+      ],
+      "accounts": [
+        {
+          "name": "patient",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "patient"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "doctor",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "register_patient",
+      "discriminator": [
+        28,
+        119,
+        184,
+        101,
+        140,
+        117,
+        47,
+        183
+      ],
+      "accounts": [
+        {
+          "name": "patient",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "revoke_doctor_access",
+      "discriminator": [
+        8,
+        229,
+        103,
+        217,
+        10,
+        233,
+        227,
+        121
+      ],
+      "accounts": [
+        {
+          "name": "patient",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "patient"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "doctor",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "upload_medical_record",
+      "discriminator": [
+        248,
+        55,
+        145,
+        33,
+        50,
+        27,
+        2,
+        137
+      ],
+      "accounts": [
+        {
+          "name": "patient",
+          "writable": true
+        },
+        {
+          "name": "owner",
+          "signer": true,
+          "relations": [
+            "patient"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "encrypted_cid",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Patient",
+      "discriminator": [
+        118,
+        127,
+        39,
+        235,
+        201,
+        189,
+        0,
+        109
+      ]
+    }
+  ],
+  "events": [
+    {
+      "name": "DoctorAccessGranted",
+      "discriminator": [
+        94,
+        147,
+        158,
+        217,
+        122,
+        43,
+        238,
+        85
+      ]
+    },
+    {
+      "name": "DoctorAccessRevoked",
+      "discriminator": [
+        233,
+        243,
+        253,
+        85,
+        66,
+        231,
+        255,
+        93
+      ]
+    },
+    {
+      "name": "MedicalRecordUploaded",
+      "discriminator": [
+        165,
+        239,
+        149,
+        250,
+        77,
+        230,
+        231,
+        67
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized access"
+    }
+  ],
+  "types": [
+    {
+      "name": "DoctorAccessGranted",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "patient",
+            "type": "pubkey"
+          },
+          {
+            "name": "doctor",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "DoctorAccessRevoked",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "patient",
+            "type": "pubkey"
+          },
+          {
+            "name": "doctor",
+            "type": "pubkey"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MedicalRecord",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "timestamp",
+            "type": "i64"
+          },
+          {
+            "name": "encrypted_cid",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MedicalRecordUploaded",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "patient",
+            "type": "pubkey"
+          },
+          {
+            "name": "encrypted_cid",
+            "type": "string"
+          },
+          {
+            "name": "timestamp",
+            "type": "i64"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Patient",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "medical_records",
+            "type": {
+              "vec": {
+                "defined": {
+                  "name": "MedicalRecord"
+                }
+              }
+            }
+          },
+          {
+            "name": "authorized_doctors",
+            "type": {
+              "vec": "pubkey"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

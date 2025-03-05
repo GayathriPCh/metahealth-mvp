@@ -1,0 +1,41 @@
+.sidebar {
+    width: 250px;  /* Fixed width */
+    background: #f4f4f4;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100vh;  /* Full height */
+    
+    position: fixed; /* Sticks to the left side */
+    left: 0; /* Aligns it to the left */
+    top: 0;  /* Starts from the top */
+  }
+  
+  .sidebar button {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: left;
+    font-weight: bold;
+    transition: 0.2s;
+    border-radius: 5px;
+  }
+  
+  .sidebar button:hover {
+    background: #ddd;
+  }
+  
+  .sidebar .active {
+    background: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .content {
+    margin-left: 270px; /* Pushes content to the right */
+    padding: 20px;
+  }
+  
